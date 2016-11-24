@@ -111,17 +111,20 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     internal func onClickMyButton(sender: UIButton){
         
         // 撮影開始.
+        // フォルダ.
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        
+        // ファイル名.
+        let filePath = "\(documentsDirectory)/test.mp4"
+        
+        // URL.
+        let fileURL = URL(fileURLWithPath: filePath)
+
+        
         if( sender == myButtonStart ){
-            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
             
-            // フォルダ.
-            let documentsDirectory = paths[0]
             
-            // ファイル名.
-            let filePath = "\(documentsDirectory)/test.mp4"
-            
-            // URL.
-            let fileURL = URL(fileURLWithPath: filePath)
             
             // 録画開始.
             myVideoOutput.startRecording(toOutputFileURL: fileURL, recordingDelegate: self)
@@ -130,9 +133,16 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
             // 撮影停止.
         else if ( sender == myButtonStop ){
             myVideoOutput.stopRecording()
+            UISaveVideoAtPathToSavedPhotosAlbum(filePath, self, #selector(ViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
         }
     }
     
+//    @IBAction func tapStop(_ sender: AnyObject) {
+//        fileOutput.stopRecording()
+//        session.stopRunning()
+//        UISaveVideoAtPathToSavedPhotosAlbum(filePath, self, #selector(ViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+//    }
+ 
     // MARK: - AVCaptureFileOutputRecordingDelegate
     
     /*
@@ -141,7 +151,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
 
     }
-    
-    
-    
 }
+    
+    
+
