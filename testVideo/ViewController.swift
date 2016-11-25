@@ -8,24 +8,27 @@
 
 import UIKit
 import AVFoundation
+import AssetsLibrary
 
 class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     
-    
+    @IBOutlet weak var myLabel: UILabel!
+    // セッションの作成.
+    var mySession = AVCaptureSession()
+
+
     // ビデオのアウトプット.
-    private var myVideoOutput: AVCaptureMovieFileOutput!
+    var myVideoOutput: AVCaptureMovieFileOutput!
     
     // スタートボタン.
-    private var myButtonStart: UIButton!
+     var myButtonStart: UIButton!
     
     // ストップボタン.
-    private var myButtonStop: UIButton!
+     var myButtonStop: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // セッションの作成.
-        let mySession = AVCaptureSession()
         
         // デバイス.
         var myDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -133,9 +136,22 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
             // 撮影停止.
         else if ( sender == myButtonStop ){
             myVideoOutput.stopRecording()
+            mySession.stopRunning()
             UISaveVideoAtPathToSavedPhotosAlbum(filePath, self, #selector(ViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+                    }
+    }
+    
+    
+    func video(videoPath: String, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
+        if (error != nil) {
+            print("video saving fails")
+            myLabel.text = "video saving fails"
+        } else {
+            print("video saving success")
+            myLabel.text = "video saving success"
         }
     }
+
     
 //    @IBAction func tapStop(_ sender: AnyObject) {
 //        fileOutput.stopRecording()

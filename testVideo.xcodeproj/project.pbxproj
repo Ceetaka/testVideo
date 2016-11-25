@@ -16,8 +16,8 @@
 		1212F0D41DDC6323006FA717 /* testVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1212F0D31DDC6322006FA717 /* testVideoUITests.swift */; };
 		1212F0EF1DDC91FB006FA717 /* myFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1212F0E61DDC91FB006FA717 /* myFramework.framework */; };
 		1212F0F81DDC91FB006FA717 /* myFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 1212F0E81DDC91FB006FA717 /* myFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1212F0FC1DDC91FB006FA717 /* myFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1212F0E61DDC91FB006FA717 /* myFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		123FCACB1DE683A600B021C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123FCACA1DE683A600B021C9 /* AVFoundation.framework */; };
+		12F54C361DE7EE0F00AF12B2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F54C351DE7EE0F00AF12B2 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,28 +49,7 @@
 			remoteGlobalIDString = 1212F0AF1DDC6322006FA717;
 			remoteInfo = testVideo;
 		};
-		1212F0F91DDC91FB006FA717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1212F0A81DDC6322006FA717 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1212F0E51DDC91FB006FA717;
-			remoteInfo = myFramework;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		1212F1001DDC91FB006FA717 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				1212F0FC1DDC91FB006FA717 /* myFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1212F0B01DDC6322006FA717 /* testVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +70,7 @@
 		1212F0E91DDC91FB006FA717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1212F0EE1DDC91FB006FA717 /* myFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		123FCACA1DE683A600B021C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		12F54C351DE7EE0F00AF12B2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F54C361DE7EE0F00AF12B2 /* AssetsLibrary.framework in Frameworks */,
 				123FCACB1DE683A600B021C9 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +182,7 @@
 		123FCAC91DE683A500B021C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12F54C351DE7EE0F00AF12B2 /* AssetsLibrary.framework */,
 				123FCACA1DE683A600B021C9 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -227,12 +209,10 @@
 				1212F0AC1DDC6322006FA717 /* Sources */,
 				1212F0AD1DDC6322006FA717 /* Frameworks */,
 				1212F0AE1DDC6322006FA717 /* Resources */,
-				1212F1001DDC91FB006FA717 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1212F0FA1DDC91FB006FA717 /* PBXTargetDependency */,
 			);
 			name = testVideo;
 			productName = testVideo;
@@ -473,11 +453,6 @@
 			isa = PBXTargetDependency;
 			target = 1212F0AF1DDC6322006FA717 /* testVideo */;
 			targetProxy = 1212F0F21DDC91FB006FA717 /* PBXContainerItemProxy */;
-		};
-		1212F0FA1DDC91FB006FA717 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1212F0E51DDC91FB006FA717 /* myFramework */;
-			targetProxy = 1212F0F91DDC91FB006FA717 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
